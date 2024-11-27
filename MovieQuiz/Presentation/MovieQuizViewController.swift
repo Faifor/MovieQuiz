@@ -51,8 +51,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             questionNumber: "\(currentQuestionIndex + 1)/\(questionsAmount)")
     }
     
-    
-    
     private func show(quiz step: QuizStepViewModel) {
             imageView.image = step.image
             imageView.layer.borderColor = UIColor.ypBlack.cgColor
@@ -99,7 +97,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             }
     }
     
-    
         private func showAnswerResult(isCorrect: Bool) {
             if isCorrect { correctAnswers += 1 }
             self.isEnabled = false
@@ -112,7 +109,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
                        self.isEnabled = true
                    }
         }
-        
         
         @IBAction private func yesButtonClicked(_ sender: UIButton) {
             guard isEnabled else { return }
