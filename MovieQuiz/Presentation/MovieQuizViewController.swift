@@ -19,7 +19,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     
     override func viewDidLoad() {
         alertPresenter = AlertPresenter(delegate: self)
-
+        
         questionFactory = QuestionFactory(delegate: self)
         
         questionFactory?.requestNextQuestion()
@@ -52,26 +52,26 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     }
     
     private func show(quiz step: QuizStepViewModel) {
-            imageView.image = step.image
-            imageView.layer.borderColor = UIColor.ypBlack.cgColor
-            textLabel.text = step.question
-            counterLabel.text = step.questionNumber
-        }
+        imageView.image = step.image
+        imageView.layer.borderColor = UIColor.ypBlack.cgColor
+        textLabel.text = step.question
+        counterLabel.text = step.questionNumber
+    }
     
     private func show(quiz result: QuizResultsViewModel) {
-            let alertModel = AlertModel(
-                        title: result.title,
-                        message: result.text,
-                        buttonText: result.buttonText,
-                        buttonAction: { [weak self] in
-                            guard let self = self else { return }
-                            self.currentQuestionIndex = 0
-                            self.correctAnswers = 0
-                            self.questionFactory?.requestNextQuestion()
-                        }
-                    )
-                    alertPresenter?.show(alertModel: alertModel)
-        }
+        let alertModel = AlertModel(
+            title: result.title,
+            message: result.text,
+            buttonText: result.buttonText,
+            buttonAction: { [weak self] in
+                guard let self = self else { return }
+                self.currentQuestionIndex = 0
+                self.correctAnswers = 0
+                self.questionFactory?.requestNextQuestion()
+            }
+        )
+        alertPresenter?.show(alertModel: alertModel)
+    }
     
     private func showNextQuestionOrResults() {
         if currentQuestionIndex == questionsAmount - 1 {
@@ -91,40 +91,40 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
                 text: text,
                 buttonText: "Сыграть еще раз")
             show(quiz: results)
-            } else {
+        } else {
             currentQuestionIndex += 1
             questionFactory?.requestNextQuestion()
-            }
+        }
     }
     
-        private func showAnswerResult(isCorrect: Bool) {
-            if isCorrect { correctAnswers += 1 }
-            self.isEnabled = false
-            imageView.layer.masksToBounds = true
-                        imageView.layer.borderWidth = 8
-                        imageView.layer.borderColor = isCorrect ? UIColor.yPGreen.cgColor : UIColor.yPRed.cgColor
-                   DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {[weak self] in
-                       guard let self = self else { return }
-                       self.showNextQuestionOrResults()
-                       self.isEnabled = true
-                   }
+    private func showAnswerResult(isCorrect: Bool) {
+        if isCorrect { correctAnswers += 1 }
+        isEnabled = false
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 8
+        imageView.layer.borderColor = isCorrect ? UIColor.yPGreen.cgColor : UIColor.yPRed.cgColor
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {[weak self] in
+            guard let self = self else { return }
+            self.showNextQuestionOrResults()
+            self.isEnabled = true
         }
-        
-        @IBAction private func yesButtonClicked(_ sender: UIButton) {
-            guard isEnabled else { return }
-            guard let currentQuestion = currentQuestion else {
-                return
-            }
-            showAnswerResult(isCorrect: currentQuestion.correctAnswer == true)
+    }
+    
+    @IBAction private func yesButtonClicked(_ sender: UIButton) {
+        guard isEnabled else { return }
+        guard let currentQuestion = currentQuestion else {
+            return
         }
-        
-        @IBAction private func noButtonClicked(_ sender: UIButton) {
-            guard isEnabled else { return }
-            guard let currentQuestion = currentQuestion else {
-                return
-            }
-            showAnswerResult(isCorrect: currentQuestion.correctAnswer == false)
+        showAnswerResult(isCorrect: currentQuestion.correctAnswer == true)
+    }
+    
+    @IBAction private func noButtonClicked(_ sender: UIButton) {
+        guard isEnabled else { return }
+        guard let currentQuestion = currentQuestion else {
+            return
         }
+        showAnswerResult(isCorrect: currentQuestion.correctAnswer == false)
+    }
 }
 
 

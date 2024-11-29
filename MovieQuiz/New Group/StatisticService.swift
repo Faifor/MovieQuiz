@@ -60,7 +60,9 @@ final class StatisticService: StatisicServiceProtocol {
         }
         gamesCount += 1
         let totalCorrectAnswers = bestGame.correct + count
-        let totalQuestions = bestGame.total + amount
-        totalAccuracy = Double(totalCorrectAnswers) / Double(totalQuestions)
+        let totalQuestions: Int = bestGame.total + amount
+        if totalQuestions != 0 {
+            totalAccuracy = Double(totalCorrectAnswers) / Double(totalQuestions)
+        }
     }
 }
