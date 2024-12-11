@@ -33,6 +33,11 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
     }
+
+    private func hideLoadingIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidesWhenStopped = true
+    }
     
     func didLoadDataFromServer() {
         activityIndicator.isHidden = true
@@ -93,8 +98,8 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         hideLoadingIndicator()
         
         let alertModel = AlertModel(title: "Что-то пошло не так(",
-                               message: message,
-                               buttonText: "Попробовать еще раз") { [weak self] in
+                                    message: message,
+                                    buttonText: "Попробовать еще раз") { [weak self] in
             guard let self = self else { return }
             
             self.currentQuestionIndex = 0
@@ -105,10 +110,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         
         alertPresenter?.show(alertModel: alertModel)
     }
-    
-    private func hideLoadingIndicator() {
-
-        }
     
     private func showNextQuestionOrResults() {
         if currentQuestionIndex == questionsAmount - 1 {
