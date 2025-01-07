@@ -184,8 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				AD1ABAB02831907B00B3E448 /* MovieQuiz */,
-				256A93222D09A194000C008E /* MovieQuizTests */,
-				256A93372D09B102000C008E /* MovieQuizUITests */,
 				AD1ABAAF2831907B00B3E448 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -208,6 +206,8 @@
 				6113423A2B701CF8003FC2A4 /* Services */,
 				ADF0CF75283FDAA10075F54D /* Helpers */,
 				611342392B701CF6003FC2A4 /* Models */,
+				256A93372D09B102000C008E /* MovieQuizUITests */,
+				256A93222D09A194000C008E /* MovieQuizTests */,
 				8F4738332848DE46005DF65E /* Resources */,
 			);
 			path = MovieQuiz;
