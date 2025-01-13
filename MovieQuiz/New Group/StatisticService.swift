@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StatisticService: StatisicServiceProtocol {
+final class StatisticService: StatisticServiceProtocol {
     
     private let userDefaults: UserDefaults = .standard
     
