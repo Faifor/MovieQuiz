@@ -1,9 +1,10 @@
 //
-//  MoviesLoaderTests.swift
-//  MovieQuiz
+//  Untitled.swift
+//  MovieQuiz-ios
 //
-//  Created by Данила Спиридонов on 11.12.2024.
+//  Created by Данила Спиридонов on 09.01.2025.
 //
+
 
 import XCTest // не забывайте импортировать фреймворк для тестирования
 @testable import MovieQuiz // импортируем приложение для тестирования

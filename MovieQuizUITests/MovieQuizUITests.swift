@@ -2,7 +2,7 @@
 //  MovieQuizUITests.swift
 //  MovieQuizUITests
 //
-//  Created by Данила Спиридонов on 11.12.2024.
+//  Created by Данила Спиридонов on 10.01.2025.
 //
 
 import XCTest

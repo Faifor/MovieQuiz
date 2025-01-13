@@ -1,15 +1,16 @@
 //
-//  StubNetworkClient.swift
-//  MovieQuiz
+//  Untitled.swift
+//  MovieQuiz-ios
 //
-//  Created by Данила Спиридонов on 11.12.2024.
+//  Created by Данила Спиридонов on 09.01.2025.
 //
+
 import Foundation
 
 struct StubNetworkClient: NetworkRouting {
     
     enum TestError: Error { // тестовая ошибка
-    case test
+        case test
     }
     
     let emulateError: Bool // этот параметр нужен, чтобы заглушка эмулировала либо ошибку сети, либо успешный ответ

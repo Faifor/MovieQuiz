@@ -1,10 +1,9 @@
 //
-//  ArrayTests.swift
-//  MovieQuiz
+//  MovieQuizTests_2.swift
+//  MovieQuizTests 2
 //
-//  Created by Данила Спиридонов on 11.12.2024.
+//  Created by Данила Спиридонов on 09.01.2025.
 //
-
 import XCTest
 @testable import MovieQuiz
 
