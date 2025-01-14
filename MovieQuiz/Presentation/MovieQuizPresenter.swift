@@ -10,7 +10,6 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
     private let statisticService: StatisticServiceProtocol!
     private var questionFactory: QuestionFactoryProtocol?
     private weak var viewController: MovieQuizViewControllerProtocol?
-    
     private var currentQuestion: QuizQuestion?
     private let questionsAmount: Int = 10
     private var currentQuestionIndex: Int = 0
